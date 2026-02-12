@@ -1,6 +1,7 @@
 import validators
 from fastapi import Depends, FastAPI, HTTPException, Request
-from fastapi.responses import RedirectResponse
+from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
 
@@ -9,6 +10,7 @@ from .config import get_settings
 from .database import SessionLocal, engine
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 models.Base.metadata.create_all(bind=engine)
 
 
@@ -41,7 +43,7 @@ def get_admin_info(db_url: models.URL) -> schemas.URLInfo:
 
 @app.get("/")
 def read_root():
-    return "Welcome to the URL shortener API"
+    return FileResponse("static/index.html")
 
 
 @app.post("/url", response_model=schemas.URLInfo)
