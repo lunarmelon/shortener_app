@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Shorten URL</title>
   </head>
   <body>
-    <h1>Hello</h1>
+    <h1>Shorten URL</h1>
+    <div>
+      <label>Type URL:</label>
+      <input type="text" id="url" />
+      <button onclick="sendURL()">Shorten</button>
+    </div>
+    <div id="result-container" style="display: none">
+      <p>Shortened URL:</p>
+      <a id="result-url" href="#" target="_blank"></a>
+    </div>
+    <script src="/static/main.js"></script>
   </body>
 </html>
