@@ -11,11 +11,19 @@ As of the last commit, this backend can:
 
 ## Installation
 
-To run the project, do:
+To run the project, first create a virtual environment with:
 
 ```bash
 python3 -m venv venv
 ```
+
+Activate the virtual environment with:
+
+```bash
+source venv/bin/activate
+```
+
+Then install dependencies with pip:
 
 ```bash
 python3 -m pip install -r requirements.txt
